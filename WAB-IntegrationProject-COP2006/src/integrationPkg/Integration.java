@@ -19,7 +19,7 @@ public class Integration {
 // but I couldn't get it working, so I'm using a basic offset substitution that
 // only uses addition and modulus
 	static int encodeOffset = 100 / 10;
-	static int decodeOffset = 16 / 10;
+	static int decodeOffset = 160 / 10;
 	byte unusedByte = 0;
 	short unusedShort = 0;
 	long unusedLong = 0;
@@ -50,7 +50,7 @@ public class Integration {
 			System.out.println(thisCryptObj.getEncodedText());
 		} else if (encodeDecodeChoice == 2) {
 			System.out.println(
-					"You selected to decode text.\nEnter text to encode:");
+					"You selected to decode text.\nEnter text to decode:");
 			String decodeInput = scan.nextLine().toUpperCase();
 // call decodeText() method with arguments decodeInput and decodeOffset
 			thisCryptObj.decodeText(decodeInput, decodeOffset);
