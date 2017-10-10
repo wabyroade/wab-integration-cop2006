@@ -12,16 +12,18 @@ public class WeakCrypt {
 	private String textDecoded = new String();
 	private String alphabetString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-// method declaration with multiple parameters - technically this serves
-// as setter for the private field textEncoded
+// method declaration with parameters, inputText(String) and offset(int)
+// - technically this serves as setter for the private field textEncoded
 	public void encodeText(String inputText, int offset) {
 		char tempArray[] = new char[inputText.length()];
+// MATHEMATICAL OPERATION: unary addition in for loop
 		for (int i = 0; i < inputText.length(); i++) {
 			char thisChar = inputText.charAt(i);
 			int alphaIndex = alphabetString.indexOf(thisChar);
 // logical blocks within method
 			if(alphaIndex > 0) {
-// mathematical operations
+// MATHEMATICAL OPERATIONS: addition as well as modulus(remainder) used to
+// offset character without going out of bounds of alphabet
 				alphaIndex = (alphaIndex + offset)%26;
 				tempArray[i] = alphabetString.charAt(alphaIndex);
 			}
@@ -32,16 +34,18 @@ public class WeakCrypt {
 		textEncoded = new String(tempArray);
 	}
 	
-// method declaration with multiple parameters - technically this serves
-// as setter for the private field textDecoded
+// method declaration with parameters, inputText(String) and offset(int)
+// - technically this serves as setter for the private field textDecoded
 	public void decodeText(String inputText, int offset) {
 		char tempArray[] = new char[inputText.length()];
+// MATHEMATICAL OPERATION: unary addition in for loop
 		for (int i = 0; i < inputText.length(); i++) {
 			char thisChar = inputText.charAt(i);
 			int alphaIndex = alphabetString.indexOf(thisChar);
 // logical blocks within method
 			if(alphaIndex > 0) {
-// mathematical operations
+// MATHEMATICAL OPERATIONS: addition as well as modulus(remainder) used to
+// offset character without going out of bounds of alphabet
 				alphaIndex = (alphaIndex + offset)%26;
 				tempArray[i] = alphabetString.charAt(alphaIndex);
 			}
