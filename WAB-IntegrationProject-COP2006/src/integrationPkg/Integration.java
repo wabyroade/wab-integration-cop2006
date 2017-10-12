@@ -21,7 +21,7 @@ public class Integration {
 // (2^32)-1
 	static int encodeOffset = 10;
 	static int decodeOffset = 16;
-
+	static int encodeDecodeChoice;
 	
 //byte - 8 bit signed integer, values range from -128 to 128
 	byte unusedByte = 0;
@@ -51,55 +51,60 @@ public class Integration {
 // MATHEMATICAL OPERATION: integer division
 		System.out.println("First, here's an unsolicited mathematics demo:");
 		int testDividend1 = 70;
-		int testDivisor1 = 10;
-// actual integer division of integers that divide evenly
+		int testDivisor1 = 11;
+// integer division
 		int testQuotient1 = testDividend1/testDivisor1;
-//  mod operation to see if integers that divide evenly
+//  mod operation to see if integers divide evenly
 		int testRemainder1 = testDividend1%testDivisor1;
-		if(testRemainder1 == 0) System.out.println(testDividend1 + " / " +
+		if(testRemainder1 == 0) {
+		  System.out.println(testDividend1 + " / " +
 		      testDivisor1 + " = " + testQuotient1 + ".");
-		else System.out.println(testDividend1 + " / " +
+		}
+		else {
+		  System.out.println(testDividend1 + " / " +
 		      testDivisor1 + " = " + testQuotient1 + " with remainder " +
 		      testRemainder1 + ".");
-		  
-		int testDividend2 = 70;
-		int testDivisor2 = 17;
-// actual integer division of integers that do not divide evenly
-		int testQuotient2 = testDividend2/testDivisor2;
-//  mod operation to see if integers that divide evenly
-		int testRemainder2 = testDividend2%testDivisor2;
-		if(testRemainder2 == 0) System.out.println(testDividend2 + " / " +
-		      testDivisor2 + " = " + testQuotient2 + ".");
-		else System.out.println(testDividend2 + " / " +
-		      testDivisor2 + " = " + testQuotient2 + " with remainder " +
-		      testRemainder2 + ".");
-				
+		}
+
+		int testMultiplicand = 11;
+		int testMultiplier = 5;
+		int testProduct = testMultiplicand * testMultiplier;
+    System.out.println(testMultiplicand + " multiplipied by " +
+        testMultiplier + " equals " + testProduct + ".");
+		
+		
 		System.out.println("Would you like to encode or decode text?:\n" + 
 		      "1-encode\n2-decode");
-		int encodeDecodeChoice = scan.nextInt();
+		encodeDecodeChoice = scan.nextInt();
 		scan.nextLine();
+// While loop to validate menu input from user
+		while ((encodeDecodeChoice < 1) || (encodeDecodeChoice > 2)) {
+      System.out.println("You have selected an invalid option. Try again:\n" + 
+            "1-encode\n2-decode");
+      encodeDecodeChoice = scan.nextInt();
+      scan.nextLine();
+		}
 
 // if/else logical blocks here
-		if (encodeDecodeChoice == 1) {
-			System.out.println(
-					"You selected to encode text.\nEnter text to encode:");
-			String encodeInput = scan.nextLine().toUpperCase();
+		switch (encodeDecodeChoice)
+		{
+		  case 1:
+        System.out.println(
+            "You selected to encode text.\nEnter text to encode:");
+        String encodeInput = scan.nextLine().toUpperCase();
 // call encodeText() method with arguments encodeInput and encodeOffset
-			thisCryptObj.encodeText(encodeInput, encodeOffset);
-			System.out.println(thisCryptObj.getEncodedText());
-		} else if (encodeDecodeChoice == 2) {
-			System.out.println(
-					"You selected to decode text.\nEnter text to decode:");
-			String decodeInput = scan.nextLine().toUpperCase();
+        thisCryptObj.encodeText(encodeInput, encodeOffset);
+        System.out.println(thisCryptObj.getEncodedText());
+        break;
+		  case 2:
+        System.out.println(
+            "You selected to decode text.\nEnter text to decode:");
+        String decodeInput = scan.nextLine().toUpperCase();
 // call decodeText() method with arguments decodeInput and decodeOffset
-			thisCryptObj.decodeText(decodeInput, decodeOffset);
-			System.out.println(thisCryptObj.getDecodedText());
-		} else {
-			System.out.println("You have selected an invalid option.");
+        thisCryptObj.decodeText(decodeInput, decodeOffset);
+        System.out.println(thisCryptObj.getDecodedText());
+        break;
 		}
 		scan.close();
-
-		  
-		
 	}
 }

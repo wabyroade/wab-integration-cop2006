@@ -20,7 +20,7 @@ public class WeakCrypt {
 		for (int i = 0; i < inputText.length(); i++) {
 			char thisChar = inputText.charAt(i);
 			int alphaIndex = alphabetString.indexOf(thisChar);
-// logical blocks within method
+// logical if blocks within method
 			if(alphaIndex > 0) {
 // MATHEMATICAL OPERATIONS: addition as well as modulus(remainder) used to
 // offset character without going out of bounds of alphabet
@@ -42,7 +42,7 @@ public class WeakCrypt {
 		for (int i = 0; i < inputText.length(); i++) {
 			char thisChar = inputText.charAt(i);
 			int alphaIndex = alphabetString.indexOf(thisChar);
-// logical blocks within method
+// logical if blocks within method
 			if(alphaIndex > 0) {
 // MATHEMATICAL OPERATIONS: addition as well as modulus(remainder) used to
 // offset character without going out of bounds of alphabet
