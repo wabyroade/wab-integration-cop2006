@@ -14,11 +14,11 @@ public class Integration {
 	public static Scanner scan;
 
 // declaring variables of Java built-in(primitive) data types
-// essentially variables are blocks of memory allocated to store certain values
-// the size and type of values dictate which variable type should be used
+// VARIABLES: essentially blocks of memory allocated to store certain values
+// 		the size and type of values dictate which variable type should be used
 
-// int - 32 bit signed integer, values range from -2^31 to 2^31 or unsigned 0 to
-// (2^32)-1
+// int - 32 bit signed integer, values range from -2^31 to 2^31 or unsigned from
+//		0 to (2^32)-1
 	static int encodeOffset = 10;
 	static int decodeOffset = 16;
 	static int encodeDecodeChoice;
@@ -28,7 +28,7 @@ public class Integration {
 // short - 16 bit signed integer, values range from -32,768 to 32,767
 	short unusedShort = 0;
 // long - 64 bit signed integer, values range from -2^63 to (2^63)-1 or unsigned
-// 0 to (2^64)-1
+// 		from 0 to (2^64)-1
 	long unusedLong = 0;
 // float - 32 bit floating point number
 	float unusedFloat = 0.1f;
