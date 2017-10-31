@@ -12,7 +12,7 @@ public class WeakCrypt {
 	private String textDecoded = new String();
 	private String alphabetString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-// method declaration with inputText(String) and offset(int) PARAMETERS
+// method declaration HEADER with inputText(String) and offset(int) PARAMETERS
 // - technically this serves as setter for the private field textEncoded
 	public void encodeText(String inputText, int offset) {
 		char tempArray[] = new char[inputText.length()];
@@ -34,7 +34,7 @@ public class WeakCrypt {
 		textEncoded = new String(tempArray);
 	}
 	
-// method declaration with inputText(String) and offset(int) PARAMETERS
+// method declaration HEADER with inputText(String) and offset(int) PARAMETERS
 // - technically this serves as setter for the private field textDecoded
 	public void decodeText(String inputText, int offset) {
 		char tempArray[] = new char[inputText.length()];
