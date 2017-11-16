@@ -13,34 +13,14 @@ import java.util.Scanner;
 public class Integration {
 	public static Scanner scan;
 
-	// declaring variables of Java built-in(primitive) data types
-	// VARIABLES: essentially blocks of memory allocated to store certain values
-	// the size and type of values dictate which variable type should be used
-
-	// int - 32 bit signed integer, values range from -2^31 to 2^31 or unsigned
-	// from 0 to (2^32)-1
-	static int encodeOffset = 10;
-	static int decodeOffset = 16;
-	static int encodeDecodeChoice;
-
-	// byte - 8 bit signed integer, values range from -128 to 128
-	byte unusedByte = 0;
-	// short - 16 bit signed integer, values range from -32,768 to 32,767
-	short unusedShort = 0;
-	// long - 64 bit signed integer, values range from -2^63 to (2^63)-1 or
-	// unsigned
-	// from 0 to (2^64)-1
-	long unusedLong = 0;
-	// float - 32 bit floating point number
-	float unusedFloat = 0.1f;
-	// double - 64 bit floating point number
-	double unusedDouble = 0.1;
-	// char - 16-bit unicode character ranges from \u0000 to \uffff
-	char unusedChar = 'A';
-	// boolean - true or false - one bit
-	boolean unusedBoolean = false;
+  public static int encodeOffset = 10;
+  public static int decodeOffset = 16;
+  public static int encodeDecodeChoice;
 
 	public static void main(String[] args) {
+	  dataTypeDemo();
+	  String [][] words = new String [2][];
+
 		// instantiate a new Scanner object as well as a new WeakCrypt object
 		Scanner scan = new Scanner(System.in);
 		WeakCrypt thisCryptObj = new WeakCrypt();
@@ -142,5 +122,31 @@ public class Integration {
 			System.out.println("So long.");
 		}
 		scan.close();
+	}
+	
+	public static void dataTypeDemo() {
+    // declaring variables of Java built-in(primitive) data types
+    // VARIABLES: essentially blocks of memory allocated to store certain values
+    // the size and type of values dictate which variable type should be used
+
+    // int - 32 bit signed integer, values range from -2^31 to 2^31 or unsigned
+    // from 0 to (2^32)-1
+    int unusedInt = 100;
+    // byte - 8 bit signed integer, values range from -128 to 128
+    byte unusedByte = 0;
+    // short - 16 bit signed integer, values range from -32,768 to 32,767
+    short unusedShort = 0;
+    // long - 64 bit signed integer, values range from -2^63 to (2^63)-1 or
+    // unsigned
+    // from 0 to (2^64)-1
+    long unusedLong = 0;
+    // float - 32 bit floating point number
+    float unusedFloat = 0.1f;
+    // double - 64 bit floating point number
+    double unusedDouble = 0.1;
+    // char - 16-bit unicode character ranges from \u0000 to \uffff
+    char unusedChar = 'A';
+    // boolean - true or false - one bit
+    boolean unusedBoolean = false;
 	}
 }
