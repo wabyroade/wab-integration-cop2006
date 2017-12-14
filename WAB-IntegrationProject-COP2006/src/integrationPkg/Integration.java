@@ -9,122 +9,126 @@ import java.util.Scanner;
 //SP2 - November 11, 2017
 
 //TODO: Work on more complex cipher method, reduce duplicate code
+//TODO: Create inputCheckerMethod(Scanner scanner, String type) to take input and catch exceptions
+//TODO(cont'd): use Generics??? probably not
+//TODO: Javadocs for every class field, method, constructor
+//TODO: On laptop, check "Google Style" - tabs instead of spaces????
+//TODO: Install checkStyle and SpotBugs on laptop
+
 
 public class Integration {
-	public static Scanner scan;
-
+  public static Scanner scan;
   public static int encodeOffset = 10;
   public static int decodeOffset = 16;
   public static int encodeDecodeChoice;
 
-	public static void main(String[] args) {
-	  dataTypeDemo();
-	  String [][] words = new String [2][];
+  public static void main(String[] args) {
+    dataTypeDemo();
+    String[][] words = new String[2][];
 
-		// instantiate a new Scanner object as well as a new WeakCrypt object
-		Scanner scan = new Scanner(System.in);
-		WeakCrypt thisCryptObj = new WeakCrypt();
+    // instantiate a new Scanner object as well as a new WeakCrypt object
+    WeakCrypt thisCryptObj = new WeakCrypt();
 
-		// display welcome message and initial prompt, then receive user input
-		System.out.println("Welcome to my integration project.");
+    // display welcome message and initial prompt, then receive user input
+    System.out.println("Welcome to my integration project.");
 
-		// MATHEMATICAL OPERATION: integer division
-		System.out.println("First, here's an unsolicited mathematics demo:");
-		int testDividend1 = 70;
-		int testDivisor1 = 11;
-		// integer division
-		int testQuotient1 = testDividend1 / testDivisor1;
-		// mod operation to see if integers divide evenly
-		int testRemainder1 = testDividend1 % testDivisor1;
-		if (testRemainder1 == 0) {
-			System.out.println(testDividend1 + " / " + testDivisor1 + " = "
-					+ testQuotient1 + ".");
-		} else {
-			System.out.println(
-					testDividend1 + " / " + testDivisor1 + " = " + testQuotient1
-							+ " with remainder " + testRemainder1 + ".");
-		}
+    // MATHEMATICAL OPERATION: integer division
+    System.out.println("First, here's an unsolicited mathematics demo:");
+    int testDividend1 = 70;
+    int testDivisor1 = 11;
+    // integer division
+    int testQuotient1 = testDividend1 / testDivisor1;
+    // mod operation to see if integers divide evenly
+    int testRemainder1 = testDividend1 % testDivisor1;
+    if (testRemainder1 == 0) {
+      System.out.println(
+          testDividend1 + " / " + testDivisor1 + " = " + testQuotient1 + ".");
+    } else {
+      System.out.println(testDividend1 + " / " + testDivisor1 + " = "
+          + testQuotient1 + " with remainder " + testRemainder1 + ".");
+    }
 
-		int testMultiplicand = 11;
-		int testMultiplier = 5;
-		int testProduct = testMultiplicand * testMultiplier;
-		System.out.println(testMultiplicand + " multiplipied by "
-				+ testMultiplier + " equals " + testProduct + ".");
+    int testMultiplicand = 11;
+    int testMultiplier = 5;
+    int testProduct = testMultiplicand * testMultiplier;
+    System.out.println(testMultiplicand + " multiplipied by " + testMultiplier
+        + " equals " + testProduct + ".");
 
-		System.out.println("Here are some array operations.");
-		// Create an ARRAY of random numbers in order to perform various
-		// operations on the ARRAY.
-		int[] randomNumbers = new int[10];
-		int testValue = 999; // won't compile unless initialized
-		boolean testValueAssigned = false;
-		int smallestValue = 99;
-		int arraySum = 0;
-		for (int randIter = 0; randIter < randomNumbers.length; randIter++) {
-			randomNumbers[randIter] = (int) (Math.random() * 10 + 1);
-			// to hopefully get a value to check the index of, and to use
-			// CONDITIONAL OPERATORS and RELATIONAL OPERATORS, I have criteria
-			// to assign the test value first time random number falls within
-			// a certain range
-			if ((!testValueAssigned) && (randomNumbers[randIter] <= 7)
-					&& (randomNumbers[randIter] >= 5)) {
-				testValue = randomNumbers[randIter];
-				testValueAssigned = true;
-			}
-		}
-		System.out.println("Array contents: " + Arrays.toString(randomNumbers));
+    System.out.println("Here are some array operations.");
+    // Create an ARRAY of random numbers in order to perform various
+    // operations on the ARRAY.
+    int[] randomNumbers = new int[10];
+    int testValue = 999; // won't compile unless initialized
+    boolean testValueAssigned = false;
+    int smallestValue = 99;
+    int arraySum = 0;
+    for (int randIter = 0; randIter < randomNumbers.length; randIter++) {
+      randomNumbers[randIter] = (int) (Math.random() * 10 + 1);
+      // to hopefully get a value to check the index of, and to use
+      // CONDITIONAL OPERATORS and RELATIONAL OPERATORS, I have criteria
+      // to assign the test value first time random number falls within
+      // a certain range
+      if ((!testValueAssigned) && (randomNumbers[randIter] <= 7)
+          && (randomNumbers[randIter] >= 5)) {
+        testValue = randomNumbers[randIter];
+        testValueAssigned = true;
+      }
+    }
+    System.out.println("Array contents: " + Arrays.toString(randomNumbers));
 
-		for (int opIter = 0; opIter < randomNumbers.length; opIter++) {
-			if (randomNumbers[opIter] < smallestValue) {
-				smallestValue = randomNumbers[opIter];
-			}
-			if (randomNumbers[opIter] == testValue) {
-				System.out
-						.println("Index of value " + testValue + ": " + opIter);
-			}
-			arraySum += randomNumbers[opIter];
-		}
-		System.out.println("Smallest of array values: " + smallestValue);
-		System.out.println("Sum of array values: " + arraySum);
-		System.out.print("\n");
+    for (int opIter = 0; opIter < randomNumbers.length; opIter++) {
+      if (randomNumbers[opIter] < smallestValue) {
+        smallestValue = randomNumbers[opIter];
+      }
+      if (randomNumbers[opIter] == testValue) {
+        System.out.println("Index of value " + testValue + ": " + opIter);
+      }
+      arraySum += randomNumbers[opIter];
+    }
+    System.out.println("Smallest of array values: " + smallestValue);
+    System.out.println("Sum of array values: " + arraySum);
+    System.out.print("\n");
 
-		System.out.println("Would you like to encode or decode text?:\n"
-				+ "1-encode\n2-decode\n3-nevermind that");
-		encodeDecodeChoice = scan.nextInt();
-		scan.nextLine();
-		// While loop to validate menu input from user
-		while ((encodeDecodeChoice < 1) || (encodeDecodeChoice > 3)) {
-			System.out.println("You have selected an invalid option."
-					+ "Try again:\n1-encode\n2-decode\n3-nevermind that");
-			encodeDecodeChoice = scan.nextInt();
-			scan.nextLine();
-		}
+    Scanner scan = new Scanner(System.in);
+    System.out.println("Would you like to encode or decode text?:\n"
+        + "1-encode\n2-decode\n3-nevermind that");
+    encodeDecodeChoice = scan.nextInt();
+    scan.nextLine();
+    // While loop to validate menu input from user
+    while ((encodeDecodeChoice < 1) || (encodeDecodeChoice > 3)) {
+      System.out.println("You have selected an invalid option."
+          + "Try again:\n1-encode\n2-decode\n3-nevermind that");
+      encodeDecodeChoice = scan.nextInt();
+      scan.nextLine();
+    }
 
-		switch (encodeDecodeChoice) {
-		case 1:
-			System.out.println(
-					"You selected to encode text.\nEnter text to encode:");
-			String encodeInput = scan.nextLine().toUpperCase();
-			// call encodeText() method with arguments encodeInput and
-			// encodeOffset
-			thisCryptObj.encodeText(encodeInput, encodeOffset);
-			System.out.println(thisCryptObj.getEncodedText());
-			break;
-		case 2:
-			System.out.println(
-					"You selected to decode text.\nEnter text to decode:");
-			String decodeInput = scan.nextLine().toUpperCase();
-			// call decodeText() method with arguments decodeInput and
-			// decodeOffset
-			thisCryptObj.decodeText(decodeInput, decodeOffset);
-			System.out.println(thisCryptObj.getDecodedText());
-			break;
-		default:
-			System.out.println("So long.");
-		}
-		scan.close();
-	}
-	
-	public static void dataTypeDemo() {
+    switch (encodeDecodeChoice) {
+      case 1:
+        System.out
+            .println("You selected to encode text.\nEnter text to encode:");
+        String encodeInput = scan.nextLine().toUpperCase();
+        // call encodeText() method with arguments encodeInput and
+        // encodeOffset
+        thisCryptObj.encodeText(encodeInput, encodeOffset);
+        System.out.println(thisCryptObj.getEncodedText());
+        break;
+      case 2:
+        System.out
+            .println("You selected to decode text.\nEnter text to decode:");
+        String decodeInput = scan.nextLine().toUpperCase();
+        // call decodeText() method with arguments decodeInput and
+        // decodeOffset
+        thisCryptObj.decodeText(decodeInput, decodeOffset);
+        System.out.println(thisCryptObj.getDecodedText());
+        break;
+      default:
+        System.out.println("So long.");
+    }
+    scan.close();
+  }
+
+  public static void dataTypeDemo() {
+
     // declaring variables of Java built-in(primitive) data types
     // VARIABLES: essentially blocks of memory allocated to store certain values
     // the size and type of values dictate which variable type should be used
@@ -148,5 +152,13 @@ public class Integration {
     char unusedChar = 'A';
     // boolean - true or false - one bit
     boolean unusedBoolean = false;
-	}
+    System.out.println("Here are some examples of data types and arbitrary"
+        + "values for them.");
+    System.out.println("int: " + unusedInt);
+    System.out.println("int: " + unusedInt);
+    System.out.println("int: " + unusedInt);
+    System.out.println("int: " + unusedInt);
+    System.out.println("int: " + unusedInt);
+    System.out.println("int: " + unusedInt);
+  }
 }
