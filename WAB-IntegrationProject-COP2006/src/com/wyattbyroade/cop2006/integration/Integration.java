@@ -1,4 +1,4 @@
-package integrationPkg;
+package com.wyattbyroade.cop2006.integration;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -6,15 +6,13 @@ import java.util.Scanner;
 //Wyatt Byroade
 //Integration Project - COP 2006
 //Fall 2017
-//SP2 - November 11, 2017
+//SPI3 - December 16, 2017
 
 //TODO: Work on more complex cipher method, reduce duplicate code
-//TODO: Create inputCheckerMethod(Scanner scanner, String type) to take input and catch exceptions
-//TODO(cont'd): use Generics??? probably not
+//TODO: Create inputCheckerMethod(Scanner scanner, String type) to take input
+//    and catch exceptions
+//TODO: use Generics? for data type demo? probably not
 //TODO: Javadocs for every class field, method, constructor
-//TODO: On laptop, check "Google Style" - tabs instead of spaces????
-//TODO: Install checkStyle and SpotBugs on laptop
-
 
 public class Integration {
   public static Scanner scan;
@@ -24,7 +22,6 @@ public class Integration {
 
   public static void main(String[] args) {
     dataTypeDemo();
-    String[][] words = new String[2][];
 
     // instantiate a new Scanner object as well as a new WeakCrypt object
     WeakCrypt thisCryptObj = new WeakCrypt();
@@ -154,11 +151,13 @@ public class Integration {
     boolean unusedBoolean = false;
     System.out.println("Here are some examples of data types and arbitrary"
         + "values for them.");
+    System.out.println("byte: " + unusedByte);
     System.out.println("int: " + unusedInt);
-    System.out.println("int: " + unusedInt);
-    System.out.println("int: " + unusedInt);
-    System.out.println("int: " + unusedInt);
-    System.out.println("int: " + unusedInt);
-    System.out.println("int: " + unusedInt);
+    System.out.println("short: " + unusedShort);
+    System.out.println("long: " + unusedLong);
+    System.out.println("float: " + unusedFloat);
+    System.out.println("double: " + unusedDouble);
+    System.out.println("char: " + unusedChar);
+    System.out.println("boolean: " + unusedBoolean);
   }
 }
