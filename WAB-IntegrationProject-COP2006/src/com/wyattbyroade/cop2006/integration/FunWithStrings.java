@@ -13,9 +13,6 @@ public class FunWithStrings {
   private String inputString;
   public Scanner scan;
 
-  /**
-   * 
-   */
   public FunWithStrings(Scanner scan) {
     this.scan = scan;
     inputString();
@@ -101,6 +98,7 @@ public class FunWithStrings {
         {
             Thread.currentThread().interrupt();
         }
+        //TODO: catch Exception
       }
     }
   }
