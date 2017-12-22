@@ -8,8 +8,6 @@ import java.util.Scanner;
 //Fall 2017
 //SPI3 - December 16, 2017
 
-//TODO: Javadocs for every class field, method, constructor
-
 /**
  * This is the main class of this project.
  * 
