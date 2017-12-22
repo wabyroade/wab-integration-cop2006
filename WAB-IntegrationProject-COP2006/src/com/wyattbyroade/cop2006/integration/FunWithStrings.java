@@ -2,26 +2,41 @@ package com.wyattbyroade.cop2006.integration;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 import java.util.Scanner;
+import java.util.Stack;
 
 /**
+ * This class is used for creating objects to be used for String demonstration.
+ * 
  * @author Wyatt Byroade
- *
  */
 public class FunWithStrings {
+  /**
+   * The inputString field holds the user entered String to be used for String demonstrations.
+   */
   private String inputString;
+  /**
+   * The scan Scanner object references the object passed to the constructor for user input.
+   */
   public Scanner scan;
 
+  /**
+   * Constructor for FunWithStrings objects; takes Scanner object as argument.
+   * 
+   * @param scan   Scanner object used for text input by user
+   */
   public FunWithStrings(Scanner scan) {
     this.scan = scan;
     inputString();
   }
   
   
+  /**
+   * The inputString method prompts the user for a String and checks the input for validity.
+   */
   public void inputString() {
     boolean goodInput = false;
-    while(goodInput == false) {
+    while (goodInput == false) {
       // display prompt to have user enter string.
       System.out.println("Please enter a String:\n");
       try {
@@ -29,7 +44,7 @@ public class FunWithStrings {
         if (inputString.length() < 1) {
           throw new Exception("Too few characters. Try again.");
         }
-        if(inputString.matches("[0-9]+")) {
+        if (inputString.matches("[0-9]+")) {
           throw new Exception("This is only numeric. Need letters. Try again.");
         }
         goodInput = true;
@@ -40,12 +55,16 @@ public class FunWithStrings {
   }
   
   
+  /**
+   * The runStringMenu method displays a menu of String demonstration options, then receives and
+   * validates user input and runs appropriate demonstration method.
+   */
   public void runStringMenu() {
     boolean exitCodeRecd = false;
     while (exitCodeRecd == false) {
       boolean goodSelection = false;
       int menuSelection = -1;
-      while(goodSelection == false) {
+      while (goodSelection == false) {
         // display prompt to determine what type of String demo to run
         System.out.println("What kind of string demo would you like?:\n"
             + "1-Convert name to proper case\n"
@@ -58,9 +77,7 @@ public class FunWithStrings {
           menuSelection = Integer.parseInt(userInput);
           if ((menuSelection > 0) && (menuSelection < 5)) {
             goodSelection = true;
-          }
-          else {
-  //          scan.nextLine();
+          } else {
             throw new Exception("Menu Selection out of range. Try again.");
           }
         } catch (NumberFormatException ex) {
@@ -80,8 +97,7 @@ public class FunWithStrings {
           case 3:
             if (this.checkPalindrome() == true) {
               System.out.println("It is a palindrome.");
-            }
-            else {
+            } else {
               System.out.println("It's not a palindrome.");
             }
             break;
@@ -89,20 +105,23 @@ public class FunWithStrings {
             exitCodeRecd = true;
             System.out.println("Returning to main menu.");
         }
-      
-        try        
-        {
-            Thread.sleep(1400);
-        } 
-        catch(InterruptedException ex) 
-        {
-            Thread.currentThread().interrupt();
+        try {
+          Thread.sleep(1400);
+        } catch (InterruptedException ex) {
+          Thread.currentThread().interrupt();
         }
         //TODO: catch Exception
       }
     }
   }
   
+  /**
+   * The checkPalindrome method creates a temporary Stack and Queue, puts each character
+   * of the inputString field into both. Then removes/pops elements one at a time and compares
+   * them.
+   * 
+   * @return  boolean value returns to the calling function to determine if valid palindrome
+   */
   public boolean checkPalindrome() {
     
     // Use of a stack as part of checkPalindrome method
@@ -126,24 +145,35 @@ public class FunWithStrings {
     return true;
   }
 
+  /**
+   * The convertToProperCase method creates a temporary char array then iterates through it
+   * replacing each character after a space with the its uppercase counterpart.
+   */
   public void convertToProperCase() {
     char[] tempCharArray = inputString.toCharArray();
     boolean nextLetterUp = true;
     for (int iterator = 0; iterator < tempCharArray.length; iterator++) {
-      if(nextLetterUp) {
+      if (nextLetterUp) {
         tempCharArray[iterator] = Character.toUpperCase(tempCharArray[iterator]);
         nextLetterUp = false;
       }
-      if(tempCharArray[iterator] == ' ') {
+      if (tempCharArray[iterator] == ' ') {
         nextLetterUp = true;
       }
     }
     inputString = new String(tempCharArray);
   }
+
+  /**
+   * The countVowels loops through each character of inputString field and increments
+   * a count variable each time a vowel is found, then returns that count.
+   * 
+   * @return  int value containing the number of vowels in inputString
+   */
   public int countVowels() {
     String compareString = inputString.toLowerCase();
     int count = 0;
-    for(int iterator = 0; iterator < compareString.length(); iterator++) {
+    for (int iterator = 0; iterator < compareString.length(); iterator++) {
       switch (compareString.charAt(iterator)) {
         case 'a':
         case 'e':
@@ -151,6 +181,7 @@ public class FunWithStrings {
         case 'o':
         case 'u':
           count++;
+          break;
         default:
           //don't increment count
       }

@@ -53,8 +53,17 @@ public class WeakCrypt {
   }
 
   // private fields declared here
+  /**
+   * textEncoded is a String that holds the text after it is encoded.
+   */
   private String textEncoded = new String();
+  /**
+   * textDecoded is a String that holds the text after it is decoded.
+   */
   private String textDecoded = new String();
+  /**
+   * alphabetString is a String that holds the letters of the alphabet in order from A-Z.
+   */
   private String alphabetString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
   // method declaration HEADER with inputText(String) and offset(int)
