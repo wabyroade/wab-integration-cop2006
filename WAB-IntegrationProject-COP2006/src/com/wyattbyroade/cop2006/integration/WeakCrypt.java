@@ -8,10 +8,19 @@ import java.util.Map;
 //Fall 2017
 //SP1 - September 30, 2017
 
+/**
+ * This is the class used to create objects for encoding and decoding text.
+ * 
+ * @author Wyatt Byroade
+ */
 public class WeakCrypt {
 
   // Creation of static MAP to hold characters as values and position in
   // alphabet as keys
+  /**
+   * alphaMap is a hashmap that stores a Character with an Integer key for each
+   * element.
+   */
   private static final Map<Integer, Character> alphaMap = new HashMap<Integer, Character>();
 
   static {
@@ -51,6 +60,13 @@ public class WeakCrypt {
   // method declaration HEADER with inputText(String) and offset(int)
   // PARAMETERS
   // - technically this serves as setter for the private field textEncoded
+  /**
+   * The encodeText method encodes a String when passed that String as well as
+   * the offset used for encoding.
+   * 
+   * @param inputText   String to be encoded
+   * @param offset      Number of characters to offset by
+   */
   public void encodeText(String inputText, int offset) {
     char[] tempArray = new char[inputText.length()];
     // MATHEMATICAL OPERATION: unary addition in FOR LOOP
@@ -75,6 +91,13 @@ public class WeakCrypt {
   // method declaration HEADER with inputText(String) and offset(int)
   // PARAMETERS
   // - technically this serves as setter for the private field textDecoded
+  /**
+   * The decodeText method decodes a String when passed that String as well as
+   * the offset used for decoding.
+   * 
+   * @param inputText   String to be decoded
+   * @param offset      Number of characters to offset by
+   */
   public void decodeText(String inputText, int offset) {
     char[] tempArray = new char[inputText.length()];
     // MATHEMATICAL OPERATION: unary addition in FOR LOOP
@@ -96,11 +119,21 @@ public class WeakCrypt {
   }
 
   // public getter method for the private encodedText field
+  /**
+   * The getEncodedText method returns the String that holds the encoded text.
+   * 
+   * @return  Returns String object containing encoded text.
+   */
   public String getEncodedText() {
     return textEncoded;
   }
 
   // public getter method for the private decodedText field
+  /**
+   * The getDecodedText method returns the String that holds the decoded text.
+   * 
+   * @return  Returns String object containing decoded text.
+   */
   public String getDecodedText() {
     return textDecoded;
   }

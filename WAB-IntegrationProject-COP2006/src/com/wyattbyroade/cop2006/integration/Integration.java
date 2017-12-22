@@ -9,15 +9,40 @@ import java.util.Scanner;
 //SPI3 - December 16, 2017
 
 //TODO: Javadocs for every class field, method, constructor
-//TODO: display 2d array
 
+/**
+ * This is the main class of this project.
+ * 
+ * <p>Integration class contains the methods and fields needed to run this
+ * application. It is not intended to be instantiated as object.
+ *
+ * @author Wyatt Byroade
+ */
 public class Integration {
+  /**
+   * Number of positions in the alphabet to shift a given letter while encoding.
+   */
   public static int encodeOffset = 10;
+  /**
+   * Number of positions in the alphabet to shift a given letter while decoding.
+   */
   public static int decodeOffset = 16;
-  public static int encodeDecodeChoice;
+  /**
+   * Boolean value to act as sentinel for menu while-loop.
+   */
   public static boolean exitCodeRecd = false;
+  /**
+   * Instantiation of new Scanner object to handle all user input throughout
+   * all sections of the program.
+   */
   public static Scanner scan = new Scanner(System.in);
 
+  /**
+   * The main method begins execution of the program.
+   * 
+   * @param args  Array of String objects can be passed as arguments to main
+   *              method. Currently unused.
+   */
   public static void main(String[] args) {
 
     while (exitCodeRecd == false) {
@@ -28,10 +53,9 @@ public class Integration {
         case 1:
           //Instantiate a new WeakCrypt object
           WeakCrypt thisEncryptObj = new WeakCrypt();
-          Scanner encTextScanner = new Scanner(System.in);
           System.out
               .println("You selected to encode text.\nEnter text to encode:");
-          String encodeInput = encTextScanner.nextLine().toUpperCase();
+          String encodeInput = scan.nextLine().toUpperCase();
           // call encodeText() method with arguments encodeInput and
           // encodeOffset
           thisEncryptObj.encodeText(encodeInput, encodeOffset);
@@ -40,10 +64,9 @@ public class Integration {
         case 2:
           //Instantiate a new WeakCrypt object
           WeakCrypt thisDecryptObj = new WeakCrypt();
-          Scanner decTextScanner = new Scanner(System.in);
           System.out
               .println("You selected to decode text.\nEnter text to decode:");
-          String decodeInput = decTextScanner.nextLine().toUpperCase();
+          String decodeInput = scan.nextLine().toUpperCase();
           // call decodeText() method with arguments decodeInput and
           // decodeOffset
           thisDecryptObj.decodeText(decodeInput, decodeOffset);
@@ -70,7 +93,7 @@ public class Integration {
           weaponArray[0] = new Weapon(342.50,75,80);
           weaponArray[1] = new Sword(99.50,90,90,70,30);
           weaponArray[2] = new Cannon(1990.00,19000,70,300);
-          for(Weapon thisWeapon : weaponArray) {
+          for (Weapon thisWeapon : weaponArray) {
             thisWeapon.demonstrateWeapon();
           }
           break;
@@ -79,23 +102,27 @@ public class Integration {
           System.out.println("So long.");
       }
       System.out.println("\n");
-      try        
-      {
-          Thread.sleep(1400);
-      } 
-      catch(InterruptedException ex) 
-      {
-          Thread.currentThread().interrupt();
+      try {
+        Thread.sleep(1400);
+      } catch (InterruptedException ex) {
+        Thread.currentThread().interrupt();
       }
     }
   }
 
+
+  /**
+   * The runMainMenu displays a text based menu and checks user input for
+   * any issues.
+   * 
+   * @return   int of item selected in menu to be receieved by switch statement
+   */
   public static int runMainMenu() {
     int thisMenuSelection = -1;
     // display welcome message and initial prompt, then receive user input
     System.out.println("Welcome to my integration project.");
     boolean goodSelection = false;
-    while(goodSelection == false) {
+    while (goodSelection == false) {
       System.out.println("What would you like to do?:\n"
           + "1-Encode Text\n"
           + "2-Decode Text\n"
@@ -107,13 +134,10 @@ public class Integration {
           + "8-nevermind all that, exit");
       try {
         String userInput = scan.nextLine();
-//        scan.nextLine();
         thisMenuSelection = Integer.parseInt(userInput);
         if ((thisMenuSelection > 0) && (thisMenuSelection < 9)) {
           goodSelection = true;
-        }
-        else {
-//          scan.nextLine();
+        } else {
           throw new Exception("Menu Selection out of range. Try again");
         }
       } catch (NumberFormatException ex) {
@@ -125,6 +149,10 @@ public class Integration {
     return thisMenuSelection;
   }
 
+  /**
+   * The dataTypeDemo displays the list of data types and variables that fit 
+   * into the various types.   
+   */
   public static void dataTypeDemo() {
 
     // declaring variables of Java built-in(primitive) data types
@@ -162,6 +190,9 @@ public class Integration {
     System.out.println("boolean: " + unusedBoolean);
   }
   
+  /**
+   * The mathematicsDemo displays various arithmetic functions.
+   */
   public static void mathematicsDemo() {
     // MATHEMATICAL OPERATION: integer division
     System.out.println("First, here's an unsolicited mathematics demo:");
@@ -186,6 +217,9 @@ public class Integration {
         + " equals " + testProduct + ".");
   }
   
+  /**
+   * The arrayDemo method displays various array operations.
+   */
   public static void arrayDemo() {
     System.out.println("Here are some array operations.");
     // Create an ARRAY of random numbers in order to perform various
@@ -247,7 +281,7 @@ public class Integration {
         {1,70,54,71,83,51,54,69,16,92,33,48,61,43,52,1,89,19,67,48}
     };
     
-    for(int[] row : matrix) {
+    for (int[] row : matrix) {
       for (int i : row) {
         System.out.print(i);
         System.out.print("\t");
@@ -261,6 +295,15 @@ public class Integration {
     System.out.print("(" + searchResults[0] + ", " + searchResults[1] + ") ");
   }
 
+  /**
+   * The search2DArray method iterates through 2 dimensional array to find
+   * location of first sought value.
+   * 
+   * @param searchArray   Two dimensional array of int values.
+   * @param searchFor     int value of number being sought from the array.
+   * @return    Returns an Integer array of size 2 containing the row index and
+   *            column index respectively for the value being searched for. 
+   */
   // search for a given number in 2D array, return it and stop method execution
   // when the sought number is found.
   public static Integer[] search2DArray(int[][] searchArray, int searchFor) {
@@ -268,16 +311,16 @@ public class Integration {
     Integer rowIterator = 0;
     Integer colIterator = 0;
     for (int[] arrLine : searchArray) {
-        colIterator = 0;
-        for (int thisCell : arrLine) { 
-          if (thisCell == searchFor) {
-            Integer[] cellCoord = {rowIterator,colIterator};
-            return cellCoord;
-          }
-          colIterator++;
+      colIterator = 0;
+      for (int thisCell : arrLine) { 
+        if (thisCell == searchFor) {
+          Integer[] cellCoord = {rowIterator,colIterator};
+          return cellCoord;
         }
-        rowIterator++;
+        colIterator++;
       }
+      rowIterator++;
+    }
     return resultList;
   }
 }
